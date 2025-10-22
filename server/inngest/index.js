@@ -48,18 +48,4 @@ const syncUserUpdation = inngest.createFunction(
   }
 );
 
-// Inngest function to handle booking notifications
-const sendBookingNotification = inngest.createFunction(
-  { id: "send-booking-notification" },
-  { event: "booking/created" },
-  async ({ event }) => {
-    const { bookingId, userEmail, movieTitle, showTime } = event.data;
-    
-    // Add your notification logic here
-    console.log(`Sending booking notification for ${movieTitle} to ${userEmail}`);
-    
-    // You can add email sending, SMS, push notifications, etc.
-  }
-);
-
-export const functions = [syncUserCreation, syncUserDeletion, syncUserUpdation, sendBookingNotification];
+export const functions = [syncUserCreation, syncUserDeletion, syncUserUpdation];
